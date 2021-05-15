@@ -3,7 +3,13 @@ writeCode
 Write code to execute below expressions.
 
 1. Create a database named `blog`.
+
+use blog
+
 2. Create a collection called 'articles'.
+
+db.createCollection('article')
+
 3. Insert multiple documents(at least 3) into articles. It should have fields
 
 - title as string
@@ -17,6 +23,23 @@ Write code to execute below expressions.
     - example author: {name: 'abc', email: 'abc@gmail', age: 25}
 - tags : Array of strings like ['html', 'css']
 
+
+db.article.insertMany([
+
+  {
+    'id':"123QAd9",
+    `title`:'Some Random Articel',
+'details':'Some random desc.',
+'author':{
+
+      'name':"Author name,
+      'email':"xyz@gmaail.com",
+      'age':32,
+      
+        },
+  'tags':['js','mongo'],
+
+}])
 ```js
 // An article should look like in the database
 {
@@ -33,10 +56,19 @@ Write code to execute below expressions.
 ```
 
 4. Find all the articles using `db.COLLECTION_NAME.find()`
+db.articles.find();
 5. Find a document using \_id field.
+db.articles.find({"id":123QAd9});
+
 6. 1. Find documents using title
+db.articles.find({"title":"Some Random Articel"});
+
 7. 2. Find documents using author's name field.
+db.articles.find({'author':{"name":"Arom"}});
+
+
 8. Find document using a specific tag.
+db.articles.find({'tag':'mongo'});
 
 9. Update title of a document using its \_id field.
 10. Update a author's name using article's title.
